@@ -12,14 +12,27 @@ console.log('hi');
 function onClickGeneratePassword() {
   console.log("hi i clicked the button!")
 
-  // These guys should actually be input from user not random consts
-  const passwordLength = 10;
-  const shouldUseLowercase = true;
-  const shouldUseUppercase = true;
-  const shouldUseSymbol = true;
-  const shouldUseNumber = true;
+    // 1. prompt user for password options
+  let passwordLength = prompt("Please select a password length between 8 and 128!", "10");
+  if (passwordLength<8 || passwordLength>128){
+
+  alert("That number was not between 8 and 128. Please select a password length between 8 and 128!", "10");
+  console.log('the people want a length!' );
+  return;
+  }
+
+  let shouldUseUppercase = confirm("Would you like to include uppercase letters?");
+  console.log('the people want a uppercase!' )
+
+  let shouldUseLowercase = confirm("Would you like to include lowercase letters?");
+  console.log('the people want a lowercase!' )
+
+  let shouldUseNumber = confirm("Would you like to include numbers?");
+  console.log('the people want a number!' )
+
+  let shouldUseSymbol = confirm("Would you like to include symbols?");
+  console.log('the people want a symbol!' )
   
-  // 1. prompt user for password options
   // 2. generate password based on options
   var password = generatePassword(passwordLength, shouldUseLowercase, shouldUseUppercase, shouldUseNumber, shouldUseSymbol);
 
